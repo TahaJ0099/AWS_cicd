@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Website</title>
+</head>
+<body>
+  <!-- Title -->
+  <h1>Dynamic Interaction Page</h1>
+  
+  <!-- Greeting Section -->
+  <p>Enter your name to receive a personalized message:</p>
+  <input type="text" id="nameInput" placeholder="Type your name here">
+  <button onclick="displayGreeting()">Submit</button>
+  <h3 id="greetingMessage"></h3>
+  
+  <!-- Random Fact Section -->
+  <hr>
+  <p>Click the button below to see a random fun fact:</p>
+  <button onclick="generateFunFact()">Show Fun Fact</button>
+  <p id="factDisplay"></p>
+  
+  <!-- To-Do List Section -->
+  <hr>
+  <p>Add items to your to-do list:</p>
+  <input type="text" id="todoInput" placeholder="Enter a task">
+  <button onclick="addTodo()">Add Task</button>
+  <ul id="todoList"></ul>
+
+  <!-- Script Section -->
+  <script>
+    // Display a personalized greeting
+    function displayGreeting() {
+      const name = document.getElementById('nameInput').value;
+      const greetingMessage = document.getElementById('greetingMessage');
+      if (name.trim() !== "") {
+        greetingMessage.textContent = `Hello, ${name}! Welcome to this dynamic page.`;
+      } else {
+        greetingMessage.textContent = "Please enter your name to get a personalized greeting.";
+      }
+    }
+
+    // Show a random fun fact
+    function generateFunFact() {
+      const facts = [
+        "The Eiffel Tower can be 15 cm taller during the summer.",
+        "A group of crows is called a 'murder.'",
+        "Bananas are naturally radioactive.",
+        "Wombat poop is cube-shaped.",
+        "Sharks existed before trees."
+      ];
+      const randomFact = facts[Math.floor(Math.random() * facts.length)];
+      document.getElementById('factDisplay').textContent = randomFact;
+    }
+
+    // Add an item to the to-do list
+    function addTodo() {
+      const todoInput = document.getElementById('todoInput').value;
+      if (todoInput.trim() !== "") {
+        const todoList = document.getElementById('todoList');
+        const newTask = document.createElement('li');
+        newTask.textContent = todoInput;
+        todoList.appendChild(newTask);
+        document.getElementById('todoInput').value = ""; // Clear input field
+      } else {
+        alert("Please enter a task to add to your to-do list.");
+      }
+    }
+  </script>
+</body>
+</html>
