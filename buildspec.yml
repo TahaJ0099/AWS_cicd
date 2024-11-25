@@ -3,24 +3,23 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16
+      nodejs: 16 # Optional if you don't need Node.js for other tasks
     commands:
-      - echo "Installing dependencies (if needed)..."
-      - npm install 
+      - echo "No installation required for static/dynamic HTML."
   pre_build:
     commands:
-      - echo "Pre-build:Running any preparation tasks..."
+      - echo "Pre-build: Running any preparation tasks..."
   build:
     commands:
-      - echo "Build:Running the build process..."
-      - echo "No build steps needed for static HTML, skipping."
+      - echo "Build: Running the build process..."
+      - echo "No build steps needed for static/dynamic HTML."
   post_build:
     commands:
-      - echo "Post-build:Preparing artifacts for deployment..."
+      - echo "Post-build: Preparing artifacts for deployment..."
       - echo "Build process completed."
 
 artifacts:
   files:
-    - '**/*' 
-  base-directory: '.' 
+    - '**/*' # Include all files in the directory
+  base-directory: '.' # Root directory of your application
   discard-paths: no
