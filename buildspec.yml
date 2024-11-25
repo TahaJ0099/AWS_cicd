@@ -3,23 +3,24 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-      nodejs: 16 # Specify a runtime if you use any dependencies
+      nodejs: 16
     commands:
       - echo "Installing dependencies (if needed)..."
-      - npm install # Only needed if you use a package.json or npm scripts
+      - npm install 
   pre_build:
     commands:
-      - echo "Pre-build: Running any preparation tasks..."
+      - echo "Pre-build:Running any preparation tasks..."
   build:
     commands:
-      - echo "Build: Running the build process..."
+      - echo "Build:Running the build process..."
       - echo "No build steps needed for static HTML, skipping."
   post_build:
     commands:
-      - echo "Post-build: Preparing artifacts for deployment..."
+      - echo "Post-build:Preparing artifacts for deployment..."
       - echo "Build process completed."
+
 artifacts:
   files:
-    - '**/*' # Include all files in the directory
-  base-directory: '.' # Root directory of your application
+    - '**/*' 
+  base-directory: '.' 
   discard-paths: no
